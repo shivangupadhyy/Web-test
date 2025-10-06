@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Course Selling Website</title>
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="#" class="logo-link">
+        <div class="logo-icon">HW</div>
+        <div>
+          <h1 class="logo-title">Great World Academy</h1>
+          <p class="logo-subtitle">Learn. Build. Ship.</p>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a href="#courses" class="nav-link">Courses</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <button id="ctaHeader" class="cta-button">Get Started</button>
+      </nav>
+
+      <button id="menuBtn" class="menu-button">Menu</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="gradient-blob">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h2 class="hero-title">Great World Academy! Learn the skills companies want.</h2>
+        <p class="hero-subtitle">Practical, project-based courses to help you go from zero to portfolio — taught by industry practitioners.</p>
+
+        <div class="hero-buttons">
+          <a href="#courses" class="primary-button">Browse courses</a>
+          <a href="#contact" class="secondary-button">Contact us</a>
+        </div>
+
+        <div class="hero-trial">
+          <span class="hero-trial-label">Free trial:</span> 7-day access to one course. No credit card required.
+        </div>
+      </div>
+
+      <div class="hero-sidebar">
+        <div class="featured-course">
+          <h3 class="featured-title">Featured course</h3>
+          <p class="featured-description">Build and deploy a real web app with modern tooling.</p>
+
+          <ul class="feature-list">
+            <li class="feature-item"><span class="feature-bullet"></span> 8 modules</li>
+            <li class="feature-item"><span class="feature-bullet"></span> Projects & quizzes</li>
+            <li class="feature-item"><span class="feature-bullet"></span> Certificate</li>
+          </ul>
+
+          <div class="featured-buttons">
+            <button class="enroll-button">Enroll — ₹1,499</button>
+            <button class="preview-button">Preview</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses grid -->
+  <section id="courses" class="courses-section">
+    <div class="courses-header">
+      <h3 class="courses-title">Popular courses</h3>
+      <div class="courses-count">Showing <strong>6</strong> courses</div>
+    </div>
+
+    <!-- Course card template -->
+    <template id="course-template">
+      <article class="course-card">
+        <div class="course-header">
+          <div>
+            <h4 class="course-title">Course title</h4>
+            <p class="course-subtitle">Short description</p>
+          </div>
+          <div class="course-price-section">
+            <div class="course-price">₹999</div>
+            <div class="course-pace">Self-paced</div>
+          </div>
+        </div>
+
+        <p class="course-description">Longer one-line description of what you'll learn in the course.</p>
+
+        <div class="course-footer">
+          <div class="course-duration">Duration: <span>6 weeks</span></div>
+          <button class="course-enroll-btn enroll">Enroll</button>
+        </div>
+      </article>
+    </template>
+
+    <!-- Course grid container - JS will populate this with course cards -->
+    <div id="coursesGrid" class="courses-grid"></div>
+  </section>
+
+  <!-- About / Contact -->
+  <section id="about" class="about-section">
+    <div class="about-container">
+      <h3 class="about-title">About Great World Academy</h3>
+      <p class="about-description">We make short, focused courses for people who want to ship stuff. Practical assignments, real feedback, and no long-winded lectures.</p>
+
+      <div id="contact" class="contact-grid">
+        <div>
+          <h4 class="contact-title">Get in touch</h4>
+          <p class="contact-subtitle">Have a question about a course, or want a group discount? Send us a message.</p>
+
+          <form id="contactForm" class="contact-form">
+            <input required name="name" placeholder="Your name" class="form-input"/>
+            <input required name="email" type="email" placeholder="Email" class="form-input"/>
+            <textarea required name="message" rows="4" placeholder="Message" class="form-textarea"></textarea>
+            <div>
+              <button type="submit" class="submit-button">Send message</button>
+            </div>
+          </form>
+        </div>
+
+        <div>
+          <h4 class="contact-title">Our office</h4>
+          <p class="office-info">Hyderabad, India — remote-friendly</p>
+
+          <div class="social-section">
+            <p class="social-title">Follow us</p>
+            <div class="social-links">
+              <a href="#" class="social-link">Twitter</a>
+              <a href="#" class="social-link">LinkedIn</a>
+              <a href="#" class="social-link">YouTube</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div>© Great World Academy — <span id="year"></span></div>
+      <div>Made with ♥</div>
+    </div>
+  </footer>
+
+  <script>
+    // Small client-side logic to populate courses and wire up UI
+    const courses = [
+      { title: 'Web Development: From Zero to Deployed', sub: 'Build real websites', price: '₹1,499', duration: '8 weeks', long: 'HTML, CSS, JS, and deployment with a final project.' },
+      { title: 'Python for Data', sub: 'Foundations + projects', price: '₹1,299', duration: '6 weeks', long: 'Pandas, visualization, and a capstone notebook.' },
+      { title: 'React Bootcamp', sub: 'Modern front-end', price: '₹1,699', duration: '6 weeks', long: 'Hooks, router, state management, and REST APIs.' },
+      { title: 'Design Systems', sub: 'UI components & tokens', price: '₹999', duration: '4 weeks', long: 'Design tokens, accessibility, and component libraries.' },
+      { title: 'DevOps Basics', sub: 'CI/CD and infra', price: '₹1,199', duration: '5 weeks', long: 'Containers, CI, basic infra as code and monitoring.' },
+      { title: 'Portfolio Projects', sub: 'Ship 3 projects', price: 'Free', duration: '4 weeks', long: 'Guided project prompts and review.' }
+    ];
+
+    const grid = document.getElementById('coursesGrid');
+    const template = document.getElementById('course-template');
+
+    courses.forEach(c => {
+      const el = template.content.cloneNode(true);
+      el.querySelector('.course-title').textContent = c.title;
+      el.querySelector('.course-subtitle').textContent = c.sub;
+      el.querySelector('.course-price').textContent = c.price;
+      el.querySelector('.course-duration span').textContent = c.duration;
+      el.querySelector('.course-description').textContent = c.long;
+      el.querySelector('.enroll').addEventListener('click', () => alert('Enrolled in: ' + c.title));
+      grid.appendChild(el);
+    });
+
+    // contact form faux-submit
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = new FormData(e.target);
+      alert('Thanks, ' + data.get('name') + '! We received your message.');
+      e.target.reset();
+    });
+
+    // small UI wiring
+    document.getElementById('year').textContent = (new Date()).getFullYear();
+    document.getElementById('ctaHeader').addEventListener('click', () => location.hash = '#courses');
+    document.getElementById('menuBtn').addEventListener('click', () => alert('Mobile menu: try the links above on larger screens'));
+  </script>
+</body>
+</html>
