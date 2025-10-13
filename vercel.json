@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/student-login.html",
+      "destination": "/student-login.html"
+    },
+    {
+      "source": "/admin-login.html", 
+      "destination": "/admin-login.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

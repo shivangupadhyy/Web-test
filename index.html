@@ -4,11 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Course Selling Website</title>
-  <!-- Custom styles -->
+  
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Header -->
+  
   <header class="header">
     <div class="header-container">
       <a href="#" class="logo-link">
@@ -23,6 +23,8 @@
         <a href="#courses" class="nav-link">Courses</a>
         <a href="#about" class="nav-link">About</a>
         <a href="#contact" class="nav-link">Contact</a>
+        <a href="./components/student-login.html" class="nav-link">Student Login</a>
+        <a href="./components/admin-login.html" class="nav-link">Admin Login</a>
         <button id="ctaHeader" class="cta-button">Get Started</button>
       </nav>
 
@@ -30,7 +32,7 @@
     </div>
   </header>
 
-  <!-- Hero -->
+  
   <section class="gradient-blob">
     <div class="hero-container">
       <div class="hero-content">
@@ -67,14 +69,14 @@
     </div>
   </section>
 
-  <!-- Courses grid -->
+  
   <section id="courses" class="courses-section">
     <div class="courses-header">
       <h3 class="courses-title">Popular courses</h3>
       <div class="courses-count">Showing <strong>6</strong> courses</div>
     </div>
 
-    <!-- Course card template -->
+    
     <template id="course-template">
       <article class="course-card">
         <div class="course-header">
@@ -97,11 +99,11 @@
       </article>
     </template>
 
-    <!-- Course grid container - JS will populate this with course cards -->
+    
     <div id="coursesGrid" class="courses-grid"></div>
   </section>
 
-  <!-- About / Contact -->
+  
   <section id="about" class="about-section">
     <div class="about-container">
       <h3 class="about-title">About Great World Academy</h3>
@@ -147,7 +149,7 @@
   </footer>
 
   <script>
-    // Small client-side logic to populate courses and wire up UI
+    
     const courses = [
       { title: 'Web Development: From Zero to Deployed', sub: 'Build real websites', price: '₹1,499', duration: '8 weeks', long: 'HTML, CSS, JS, and deployment with a final project.' },
       { title: 'Python for Data', sub: 'Foundations + projects', price: '₹1,299', duration: '6 weeks', long: 'Pandas, visualization, and a capstone notebook.' },
@@ -171,7 +173,7 @@
       grid.appendChild(el);
     });
 
-    // contact form faux-submit
+    
     document.getElementById('contactForm').addEventListener('submit', (e) => {
       e.preventDefault();
       const data = new FormData(e.target);
@@ -179,7 +181,6 @@
       e.target.reset();
     });
 
-    // small UI wiring
     document.getElementById('year').textContent = (new Date()).getFullYear();
     document.getElementById('ctaHeader').addEventListener('click', () => location.hash = '#courses');
     document.getElementById('menuBtn').addEventListener('click', () => alert('Mobile menu: try the links above on larger screens'));
